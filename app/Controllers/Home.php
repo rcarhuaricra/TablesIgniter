@@ -1,7 +1,7 @@
 <?php namespace App\Controllers;
 
 use App\Models\HomeModel;
-use monken\TablesIgniter;
+use ricv\RicvDataTable;
 
 class Home extends BaseController{
   	
@@ -11,7 +11,7 @@ class Home extends BaseController{
 
 	public function firstTable(){
 		$model = new HomeModel();
-		$table = new TablesIgniter();
+		$table = new RicvDataTable();
 		$table->setTable($model->noticeTable())
 			  ->setOutput(["id","title","date"]);
 		return $table->getDatatable();
@@ -19,13 +19,13 @@ class Home extends BaseController{
 
 	public function tableSecPattern(){
 		$model = new HomeModel();
-		$table = new TablesIgniter($model->initTable());
+		$table = new RicvDataTable($model->initTable());
 		return $table->getDatatable();
 	}
 
 	public function fullTable(){
 		$model = new HomeModel();
-		$table = new TablesIgniter();
+		$table = new RicvDataTable();
 		$table->setTable($model->noticeTable())
 			  ->setDefaultOrder("id","DESC")
 			  ->setSearch(["title","date"])

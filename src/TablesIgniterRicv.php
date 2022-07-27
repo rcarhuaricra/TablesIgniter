@@ -7,14 +7,14 @@
  * @package    CodeIgniter4
  * @subpackage libraries
  * @category   library
- * @version    1.3.0
+ * @version    1.3.4
  * @author    rcarhuaricra <ronald@grupocarhua.com>
  * @link      https://github.com/rcarhuaricra/TablesIgniter
  */
 
 use \CodeIgniter\Database\BaseBuilder;
 
-class RicvDataTable{
+class TablesIgniterRicv{
     
     protected $builder;
     protected $outputColumn;

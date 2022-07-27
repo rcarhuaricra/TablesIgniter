@@ -217,17 +217,17 @@ class TablesIgniterRicv{
     private function extraConfig($bui)
     {
         
-        if($this->searchLike){
-            $bui->groupStart();
-            foreach ($this->searchLike as $key => $v) {
-                if(is_array($v)){
-                    $bui->orLike($key, $v);
-                }else{
-                    $bui->orLike($key, $v);
-                }
-            }
-            $bui->groupEnd();
-        }
+        // if($this->searchLike){
+        //     $bui->groupStart();
+        //     foreach ($this->searchLike as $key => $v) {
+        //         if(is_array($v)){
+        //             $bui->orLike($key, $v);
+        //         }else{
+        //             $bui->orLike($key, $v);
+        //         }
+        //     }
+        //     $bui->groupEnd();
+        // }
 
         if($this->searchFiltros){
             $bui->groupStart();

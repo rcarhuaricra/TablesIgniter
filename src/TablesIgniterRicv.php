@@ -216,7 +216,6 @@ class TablesIgniterRicv{
 	 */
 	private function extraConfig($bui)
 	{
-		
 		if($this->searchLike){
 			$bui->groupStart();
 			foreach ($this->searchLike as $key => $v) {

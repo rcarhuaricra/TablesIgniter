@@ -220,7 +220,6 @@ class TablesIgniterRicv{
 		if($this->searchLike){
 			$bui->groupStart();
 			foreach ($this->searchLike as $key => $v) {
-
 				if ($key == 0) {
 					$bui->like($key, $v);
 				} else {
@@ -229,9 +228,7 @@ class TablesIgniterRicv{
 					}else{
 						$bui->orLike($key, $v);
 					}
-				}
-				
-				
+				}				
 			}
 			$bui->groupEnd();
 		}

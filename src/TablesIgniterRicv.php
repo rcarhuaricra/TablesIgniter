@@ -7,7 +7,7 @@
  * @package    CodeIgniter4
  * @subpackage libraries
  * @category   library
- * @version    1.3.4
+ * @version    1.4.1
  * @author    rcarhuaricra <ronald@grupocarhua.com>
  * @link      https://github.com/rcarhuaricra/TablesIgniter
  */
@@ -196,7 +196,12 @@ class TablesIgniterRicv{
 		$subArray = array();
 		foreach ($this->outputColumn as $colKey => $data) {
 			if($name == 'name'){
-				$subArray[$data] = $row->$data;
+				if (gettype($data) != "string") {
+					$key = array_keys($data($row))[0];
+					$subArray[$key] = $data($row)[$key];
+				}else{
+					$subArray[$data] = $row->$data;
+				}
 			}else{
 				if (gettype($data) != "string") {
 					$subArray[] = $data($row);
@@ -216,19 +221,15 @@ class TablesIgniterRicv{
 	 */
 	private function extraConfig($bui)
 	{
-	
+
 		if($this->searchLike){
 			$bui->groupStart();
 			foreach ($this->searchLike as $key => $v) {
-				if ($key == 0) {
-					$bui->like($key, $v);
-				} else {
-					if(is_array($v)){
-						$bui->orLike($key, $v);
-					}else{
-						$bui->orLike($key, $v);
-					}
-				}				
+				if(is_array($v)){
+					$bui->orLike($key, $v);
+				}else{
+					$bui->orLike($key, $v);
+				}
 			}
 			$bui->groupEnd();
 		}

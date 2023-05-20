@@ -196,6 +196,7 @@ class TablesIgniterRicv{
 		$subArray = array();
 		foreach ($this->outputColumn as $colKey => $data) {
 			if($name == 'name'){
+				
 				if (gettype($data) != "string") {
 					$key = array_keys($data($row))[0];
 					$subArray[$key] = $data($row)[$key];
